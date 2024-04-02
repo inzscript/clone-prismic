@@ -1,0 +1,14 @@
+[
+   {
+      "id":"detail",
+      "name":"Detail",
+      "repeatable":true,
+      "value":"detail.json"
+   },
+   {
+      "id":"templates",
+      "name":"Templates",
+      "repeatable":true,
+      "value":"templates.json"
+   }
+]

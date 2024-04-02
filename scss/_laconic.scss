@@ -1,0 +1,242 @@
+$em-base: 16;
+/**
+* Placeholder Mixin helps change placeholder styles
+* 1. Simplifys Placeholder styling.
+*/
+@mixin placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+/**
+* Coverts pxs to ems
+* 1. Simplifys conversion from pxs vs ems.
+*/
+@function em($pxval, $base: $em-base) {
+
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+
+  @return ($pxval / $base) * 1em;
+}
+
+/**
+* Coverts pxs to rems
+* 1. Simplifys conversion from pxs vs rems.
+*/
+@mixin font-size($size, $base: 16) {
+  font-size: $size; // fallback for old browsers
+  font-size: ($size / $base) * 1rem;
+}
+
+/**
+* Hover For Non-Touch
+* 1. Simplifys Hovers for Desktop only
+*/
+@mixin hover {
+  .no-touchevents & {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+/**
+* Achor Styling
+* 1. Simplifys all possible Achor actions
+*/
+@mixin linksetup ($link, $visit, $hover, $active) {
+  a {
+    color: $link;
+    &:visited {
+      color: $visit;
+    }
+    @include hover {
+      color: $hover;
+    }
+    &:active {
+      color: $active;
+    }
+  }
+}
+
+/**
+* Pseduo must need properties
+* 1. Simplifys Pseduo repeated properties
+*/
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+/**
+* Simple Cover properties
+* 1. Simplifys cover mixin
+*/
+@mixin cover() {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/**
+* Responsive typography
+* 1. Simplifys scaling fonts mixin.
+* 2. Simplifys scaling DOM elements.
+*/
+@function calc-vw($target) {
+  $vw-context: (1440* 0.01) * 1px;
+  @return ($target / $vw-context) * 1vw;
+}
+
+@function calc-vh($target) {
+  $vh-context: (1440* 0.01) * 1px;
+  @return ($target / $vh-context) * 1vh;
+}
+
+/**
+* A simple mixin for vertical aligning the unknown
+* 1. Helps aligning DOM element with unknown height and width.
+*/
+@mixin vertical-center {
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+  }
+
+  > :first-child {
+    width: 99.5%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+/**
+* A simple mixin for images & background images maintaining ratio.
+* 1. Helps scale DOM Elements
+*/
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+  $padding: unquote( ( $y / $x ) * 100 + '%' );
+  @if $pseudo {
+    &:before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+    } @else {
+      padding-top: $padding;
+    }
+  }
+
+  @mixin maintain-ratio($ratio: 1 1) {
+    $width: 100%;
+    $height: percentage(nth($ratio, 2) / nth($ratio, 1));
+
+    width: $width;
+    height: 0;
+    padding-bottom: $height;
+  }
+
+/**
+* A simple mixin positioning DOM elements.
+* 1. Helps set an element's position.
+*/
+@mixin position($type, $top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+  position: $type;
+  $allowed_types: absolute relative fixed;
+  @if not index($allowed_types, $type) {
+    @warn 'Unknown position: #{$type}.';
+  }
+  @each $data in top $top, right $right, bottom $bottom, left $left {
+    #{nth($data, 1)}: nth($data, 2);
+  }
+}
+@mixin absolute($top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+  @include position(absolute, $top, $right, $bottom, $left);
+}
+@mixin relative($top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+  @include position(relative, $top, $right, $bottom, $left);
+}
+@mixin fixed($top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+  @include position(fixed, $top, $right, $bottom, $left);
+}
+
+/**
+* A simple mixin for speical breakpoint cases for mobile devices.
+* 1. Acts only mobile devices.
+*/
+/* ----------- iPhone 6 - 8 ----------- */
+$phone-portrait: '(min-device-width: 375px)
+and (max-device-width: 667px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait)';
+
+$phone-landscape: '(min-device-width: 375px)
+and (max-device-width: 667px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: landscape)';
+
+/* ----------- iPhone 6 - 8 Plus ----------- */
+$phone-portrait-plus: '(min-device-width: 414px)
+and (max-device-width: 736px)
+and (orientation: portrait)
+and (-webkit-min-device-pixel-ratio: 3)';
+
+$phone-landscape-plus: '(min-device-width: 414px)
+and (max-device-width: 736px)
+and (orientation: landscape)
+and (-webkit-min-device-pixel-ratio: 3)';
+
+/* ----------- iPhone X ----------- */
+$phone-portrait-x: '(min-device-width: 375px)
+and (max-device-width: 812px)
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: portrait)';
+
+$phone-landscape-x: '(min-device-width: 375px)
+and (max-device-width: 812px)
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: landscape)';
+
+/* ----------- iPad ----------- */
+$tablet-portrait: '(min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait)
+and (-webkit-min-device-pixel-ratio: 2)';
+
+$tablet-landscape: '(min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape)
+and (-webkit-min-device-pixel-ratio: 2)';
+
+/* ----------- iPad Pro ----------- */
+$pro-tablet-portrait: '(min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait)
+and (-webkit-min-device-pixel-ratio: 2)';
+
+$pro-tablet-landscape: '(min-device-width: 1112px)
+and (max-device-width: 1112px)
+and (orientation: landscape)
+and (-webkit-min-device-pixel-ratio: 2)';
+
+@mixin respond-to($media) {
+  @media only screen and #{$media} {
+    @content;
+  }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="39px" viewBox="0 0 30 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>Group 7</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="8.14479638e-05 0.0859160584 29.998371 0.0859160584 29.998371 37.8613139 8.14479638e-05 37.8613139"></polygon>
+    </defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Nav" transform="translate(-105.000000, -32.000000)">
+            <g id="Group-7" transform="translate(105.000000, 32.500000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-6"></g>
+                <path d="M27.9055113,35.0681058 C27.9055113,35.4292445 27.618,35.7231204 27.2643801,35.7231204 L2.73428959,35.7231204 C2.38080543,35.7231204 2.09302262,35.4292445 2.09302262,35.0681058 L2.09302262,2.87905474 C2.09302262,2.51777737 2.38080543,2.22404015 2.73428959,2.22404015 L17.4409412,2.22404015 L17.4409412,10.1217993 C17.4409412,11.6620474 18.6675475,12.9152153 20.1752851,12.9152153 L27.9055113,12.9152153 L27.9055113,35.0681058 Z M19.5338824,3.73585766 L26.4257376,10.7770912 L20.1752851,10.7770912 C19.8216652,10.7770912 19.5338824,10.482938 19.5338824,10.1217993 L19.5338824,3.73585766 Z M18.9207149,0.0859160584 L2.73428959,0.0859160584 C1.22668778,0.0859160584 8.14479638e-05,1.33866788 8.14479638e-05,2.87905474 L8.14479638e-05,35.0681058 C8.14479638e-05,36.608354 1.22668778,37.8613832 2.73428959,37.8613832 L27.2643801,37.8613832 C28.7721176,37.8613832 29.9984525,36.608354 29.9984525,35.0681058 L29.9984525,11.4033978 L18.9207149,0.0859160584 Z" id="Fill-5" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                <polygon id="Fill-1" fill="#FFFFFF" mask="url(#mask-2)" points="7 19 22 19 22 17 7 17"></polygon>
+                <polygon id="Fill-2" fill="#FFFFFF" mask="url(#mask-2)" points="7 24 22 24 22 22 7 22"></polygon>
+                <polygon id="Fill-3" fill="#FFFFFF" mask="url(#mask-2)" points="7 28 22 28 22 26 7 26"></polygon>
+                <polygon id="Fill-4" fill="#FFFFFF" mask="url(#mask-2)" points="7 32 18 32 18 30 7 30"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

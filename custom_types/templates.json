@@ -1,0 +1,133 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "uid",
+        "placeholder" : "Slug"
+      }
+    },
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Title"
+      }
+    },
+    "description" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading2",
+        "label" : "Description"
+      }
+    },
+    "thumbnail" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Thumbnail"
+      }
+    },
+    "left_column_headline" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading2",
+        "label" : "Left Column Headline"
+      }
+    },
+    "left_column_list_items" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "list-item",
+        "label" : "Left Column List Items"
+      }
+    },
+    "right_column_headline" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading2",
+        "label" : "Right Column Headline"
+      }
+    },
+    "right_column_list_items" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "list-item",
+        "label" : "Right Column List Items"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "choices" : {
+          "section" : {
+            "type" : "Slice",
+            "fieldset" : "Section",
+            "description" : "Contains headline & Template Details",
+            "icon" : "create_new_folder",
+            "display" : "list",
+            "non-repeat" : {
+              "headline" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1",
+                  "label" : "Headline"
+                }
+              }
+            },
+            "repeat" : {
+              "templates" : {
+                "type" : "Link",
+                "config" : {
+                  "select" : "document",
+                  "customtypes" : [ "detail" ],
+                  "label" : "Templates"
+                }
+              }
+            }
+          },
+          "structure" : {
+            "type" : "Slice",
+            "fieldset" : "Structure",
+            "description" : "Structure & Styling",
+            "icon" : "dehaze",
+            "display" : "list",
+            "non-repeat" : {
+              "left_column_headline1" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Left Column Headline"
+                }
+              },
+              "left_column_items" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "list-item",
+                  "label" : "Left Column Items"
+                }
+              },
+              "right_column_headline1" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Right Column Headline"
+                }
+              },
+              "right_column_items" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "list-item",
+                  "label" : "Right Column Items"
+                }
+              }
+            },
+            "repeat" : { }
+          }
+        }
+      }
+    }
+  }
+}

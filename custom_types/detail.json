@@ -1,0 +1,75 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "uid"
+      }
+    },
+    "id" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+        "label" : "CMS ID"
+      }
+    },
+    "order" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "order"
+      }
+    },
+    "template_name" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+        "label" : "Template Name"
+      }
+    },
+    "template_thumbnail" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Template Thumbnail"
+      }
+    },
+    "reference_number" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Reference Number"
+      }
+    },
+    "template_description" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Template Description"
+      }
+    },
+    "more_colors" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "Yes", "No" ],
+        "label" : "More Colors"
+      }
+    },
+    "template_images" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : { },
+              "thumbnails" : [ ],
+              "label" : "image"
+            }
+          }
+        },
+        "label" : "Template Images"
+      }
+    }
+  }
+}

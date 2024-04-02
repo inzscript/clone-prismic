@@ -1,0 +1,15 @@
+{ template_name:
+   [ { type: 'heading1', text: 'Template Title Cover', spans: [] } ],
+  template_thumbnail:
+   { dimensions: { width: 829, height: 465 },
+     alt: null,
+     copyright: null,
+     url:
+      'https://cne-look-bank.cdn.prismic.io/cne-look-bank/bf414d10d4158f51eab0ee79d2ad18a4b38ea
+730_example.jpg' },
+  reference_number: [ { type: 'heading4', text: '#3939832', spans: [] } ],
+  template_description:
+   [ { type: 'paragraph',
+       text: 'Template title las ka dla lkjads',
+       spans: [] } ],
+  more_colors: 'Yes' }

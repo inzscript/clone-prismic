@@ -1,0 +1,138 @@
+// Colors
+$red: #ad1a1f;
+
+#app {}
+
+.overflow-nav {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  font-size: em(16);
+  font-family: 'Open Sans', sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+}
+h2 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  ul {
+    margin: 0;
+  }
+}
+
+.google-doc {
+  position: relative;
+  margin-top: 11px;
+  &.red {
+    margin-top: 10px;
+    @include breakpoint(medium) {
+      top: 4px;
+      left: 4.5%;
+    }
+    span {
+      background-image: url($theme-path + 'white-google-doc.svg');
+    }
+    a {
+      color: #fff;
+    }
+    .block {
+      right: 6px;
+      top: 10px;
+      line-height: 16px;
+
+      @include breakpoint(medium) {
+        top: 0;
+        right: 0;
+      }
+    }
+    br {
+      display: block;
+      @include breakpoint(medium) {
+        display: none;
+      }
+    }
+  }
+  &.black {
+    margin-top: 0;
+    padding-top: 10px;
+    @include breakpoint(medium) {
+      padding-top: 0px;
+    }
+    span {
+      background-image: url($theme-path + 'black-google-doc.svg');
+    }
+    a {
+      color: #000;
+      position: relative;
+      left: 3px;
+      @include breakpoint(medium) {
+        top: 6px;
+        left: 30px;
+      }
+    }
+    .block {
+      right: 6px;
+      top: 10px;
+      line-height: 16px;
+      @include breakpoint(medium) {
+        top: 10px;
+        right: 0;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .block {
+    display: inline-block;
+    position: relative;
+  }
+  span {
+    position: relative;
+    top: 13px;
+    left: -5px;
+    height: 31px;
+    width: 31px;
+    background-repeat: no-repeat;
+    background-image: url($theme-path + 'black-google-doc.svg');
+    background-size: contain;
+    display: inline-block;
+    @include breakpoint(medium) {
+      height: 39px;
+      width: 40px
+    }
+  }
+
+  a {
+    font-size: em(12);
+    height: 68px;
+    // width: 140px;
+    @include breakpoint(medium) {
+      font-size: em(18);
+    }
+  }
+}
+
+.overall-headline {
+  text-align: center;
+  font-size: em(24);
+  margin-bottom: 20px;
+  font-weight: 600;
+  @include breakpoint(medium) {
+    font-size: em(33);
+    margin-bottom: 30px;
+  }
+  @include breakpoint(large) {
+    display: none;
+  }
+}

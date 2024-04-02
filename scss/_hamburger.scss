@@ -1,0 +1,63 @@
+#menu-icon {
+  z-index: 35;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  // position: absolute;
+
+  @include breakpoint(medium) {
+    top: 37px;
+    right: 57px;
+  }
+
+  span {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 3px;
+    width: 30px;
+    background: white;
+    opacity: 1;
+    transform: rotateZ(0deg) translateY(0px);
+    transition-property: transform, opacity;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+    transform-origin: 42.5% 50% 0;
+
+    @include breakpoint(medium) {
+      height: 4px;
+      width: 40px;
+    }
+
+    &:nth-child(2) {
+      margin: 7px 0;
+      @include breakpoint(medium) {
+        margin: 10px 0;
+      }
+    }
+  }
+  /************************************
+  * Main Nav On Show
+  ************************************/
+  &.show span {
+    &:nth-child(1) {
+      transform: rotateZ(45deg) translateY(0px) translateX(6px);
+      @include breakpoint(medium) {
+        transform: rotateZ(45deg) translateY(0px) translateX(9px);
+      }
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+      transform: rotateZ(0deg) translateY(0px) translateX(-7px);
+    }
+
+    &:nth-child(3) {
+      transform: rotateZ(-45deg) translateY(-6px) translateX(11px);
+      @include breakpoint(medium) {
+        transform: rotateZ(-45deg) translateY(-9px) translateX(16px);
+      }
+    }
+  }
+}

@@ -1,0 +1,303 @@
+#detail {
+  margin-top: 110px;
+  margin-bottom: 40px;
+
+  @include breakpoint(medium) {
+    margin-top: 140px;
+    margin-bottom: 60px;
+  }
+
+  #description {
+    text-align: center;
+    // font-weight: bold;
+    margin-bottom: 60px;
+  }
+
+  .top-section {
+    margin-bottom: 10px;
+    display: none;
+    @include breakpoint(medium) {
+      margin-bottom: 30px;
+    }
+
+    @include breakpoint(639 down) {
+      &.open {
+        display: flex;
+      }
+    }
+    @include breakpoint(640) {
+      display: flex;
+    }
+
+    h2.headline {
+      font-size: em(18);
+      border-bottom: 3px $red solid;
+      margin-bottom: 30px;
+      font-weight: bold;
+      padding-bottom: 10px;
+      @include breakpoint(medium) {
+        font-size: em(22);
+        border-bottom: 5px $red solid;
+      }
+    }
+    ul {
+      margin-bottom: 20px;
+      @include breakpoint(medium) {
+
+      }
+      li {
+        position: relative;
+        padding-left: 23px;
+        margin-bottom: 5px;
+        font-size: em(16);
+        @include breakpoint(medium) {
+          font-size: em(20);
+          line-height: 24px;
+          margin-bottom: 12px;
+        }
+        &:before {
+          content: '';
+          height: 10px;
+          width: 10px;
+          background-color: $red;
+          position: absolute;
+          left: 0px;
+          top: 7px;
+          @include breakpoint(medium) {
+            top: 6px;
+          }
+        }
+      }
+    }
+  }
+
+  .section-headline {
+    position: relative;
+    margin-bottom: 25px;
+    padding-right: 13px;
+    border-bottom: 3px $red solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-content: center; */
+    align-items: center;
+    cursor: pointer;
+
+    @include breakpoint(medium) {
+      margin-bottom: 50px;
+      padding-right: 0px;
+      border-bottom: 5px $red solid;
+      cursor: default;
+    }
+    h2 {
+      font-size: em(22);
+      font-weight: bold;
+    }
+  }
+
+  .con {
+    transition: opacity 250ms ease-in;
+    &.hid {
+      opacity: 0;
+    }
+  }
+
+  .load {
+    &:after {
+      content: '';
+      background-color: red;
+    }
+    &:before {
+      content: '';
+      background-image: url($theme-path + 'loader.gif');
+      background-repeat: no-repeat;
+      background-size: 50px;
+      height: 20px;
+      width: 50px;
+      pointer-events: none;
+    }
+  }
+
+  .accordion {
+    &.open {
+      .collapse-btn {
+        transform: rotate(0deg);
+      }
+      .closed {
+        display: flex;
+      }
+      .container {
+        overflow: initial!important;
+        height: auto!important;
+      }
+    }
+    .closed {
+      @include breakpoint(small down) {
+        display: none;
+      }
+    }
+  }
+  .collapse-btn {
+    position: absolute;
+    right: 0px;
+    bottom: 16px;
+    height: 10px;
+    display: block;
+    width: 10px;
+    background-image: url($theme-path + 'down-arrow.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transform: rotate(-90deg);
+    transition: transform 100ms ease-in;
+
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+
+  .loader {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 37px);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: #fff;
+    .imageloader {
+      background-image: url($theme-path + 'loader.gif');
+      background-repeat: no-repeat;
+      background-size: 50px;
+      height: 20px;
+      width: 50px;
+      pointer-events: none;
+    }
+  }
+
+  .container {
+    // overflow: auto;
+    // transition: height 300ms ease-in;
+    // transition: max-height 1s;
+    margin-bottom: 0px;
+    @include breakpoint(medium) {
+      margin-bottom: 40px;
+    }
+
+    &.hidden {
+      overflow: hidden;
+      height: 0;
+    }
+
+    .slider-holder {
+      display: none;
+    }
+
+    .template {
+      margin-bottom: 30px;
+      position: relative;
+      cursor: pointer;
+
+      img {
+        cursor: pointer;
+      }
+      .placeholder {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      &.loaded {
+        opacity: 1;
+        background-color: transparent;
+        .placeholder {
+          opacity: 1;
+        }
+        .loader {
+          display: none;
+        }
+      }
+
+      .title {
+        display: none;
+      }
+      .reference-num {
+        display: inline-block;
+        color: $red;
+        font-size: em(16);
+        @include breakpoint(medium) {
+          font-size: em(18);
+        }
+      }
+      .more-colors {
+        display: inline-block;
+        float: right;
+        font-size: em(16);
+        @include breakpoint(large) {
+          font-size: em(18);
+        }
+        span {
+          position: relative;
+          top: 0px;
+          right: 2px;
+        }
+      }
+      .description {
+        margin-top: 5px;
+        font-size: em(16);
+        @include breakpoint(large) {
+          font-size: em(18);
+        }
+      }
+    }
+  }
+
+
+  #pagination {
+    margin-bottom: 40px;
+    // @include breakpoint(medium) {
+    //   margin-bottom: 20px;
+    // }
+    ul {
+      text-align: center;
+      height: 20px;
+      li {
+        position: relative;
+        display: inline-block;
+        margin: 0 13px;
+        text-align: center;
+        color: #ad1a1f;
+        cursor: pointer;
+        &:after {
+          content: '';
+          width: 0;
+          height: 1px;
+          background-color: #ad1a1f;
+          position: absolute;
+          left: 0;
+          bottom: 2px;
+        }
+        @include hover {
+          &:after {
+            width: 100%;
+          }
+        }
+        @include breakpoint(medium) {
+          margin: 0 11px;
+        }
+
+        &.active {
+          &:after {
+            width: 100%;
+          }
+        }
+        a {
+
+        }
+      }
+    }
+  }
+}

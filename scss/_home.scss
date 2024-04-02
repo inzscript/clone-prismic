@@ -1,0 +1,73 @@
+#home {
+  margin-top: 110px;
+  @include breakpoint(medium) {
+    margin-top: 140px;
+  }
+
+  .headline {
+    text-align: center;
+    font-size: em(26);
+    margin-bottom: 30px;
+    font-weight: 600;
+    @include breakpoint(medium) {
+      font-size: em(33);
+    }
+    @include breakpoint(large) {
+      display: none;
+    }
+  }
+
+  #templates {
+    > div {
+      display: flex;
+      @include breakpoint(medium down) {
+        &:nth-child(odd) {
+          padding-right: 4px;
+        }
+        &:nth-child(even) {
+          padding-left: 4px;
+        }
+      }
+    }
+  }
+  .box {
+    background-color: $red;
+    margin-bottom: 8px;
+    width: 100%;
+    @include breakpoint(large) {
+      margin-bottom: 30px;
+    }
+
+    a {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      height: 100%;
+      align-items: stretch;
+    }
+    .title {
+      background-color: $red;
+      padding: 10px;
+      min-height: 42px;
+      display: flex;
+      flex-grow: 1;
+      flex-direction: row;
+      align-items: center;
+
+      @include breakpoint(medium) {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: em(15);
+        color: #fff;
+        margin-bottom: 0;
+        line-height: 18px;
+        @include breakpoint(medium) {
+          font-size: em(24);
+          line-height: 26px;
+        }
+      }
+    }
+  }
+}

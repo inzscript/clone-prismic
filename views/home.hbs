@@ -1,0 +1,25 @@
+<div id="home">
+  <div class="row">
+    <div class='small-12 column'>
+      <div class="overall-headline">{{PrismicPlainText documents.title}}</div>
+    </div>
+  </div>
+  <div class="row align-center">
+    <div class="large-11 column">
+    <div id="templates" class="row">
+        {{#each pages}}
+        <div class="small-6 medium-6 large-4 column">
+          <div class="box">
+            <a href="/{{uid}}">
+              <img src="{{data.thumbnail.url}}" alt="{{alt}}">
+              <div class="title">
+                <h2>{{PrismicPlainText data.title}}</h2>
+              </div>
+            </a>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

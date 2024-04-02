@@ -1,0 +1,115 @@
+<div id="detail">
+  <div class="row">
+    <div class='small-12 column'>
+      <div class="overall-headline">{{PrismicPlainText documents.title}}</div>
+    </div>
+  </div>
+  {{#empty documents.description}}
+  <div class="row">
+    <div class='small-12 column'>
+      <div id="description">{{PrismicPlainText documents.description}}</div>
+    </div>
+  </div>
+  {{/empty}}
+
+  {{#empty documents.left_column_headline}}
+  <div class="top-section row align-spaced">
+    <div class="small-12 medium-5 large-5 column">
+      <h2 class="headline">{{PrismicPlainText documents.left_column_headline}}</h2>
+      {{{PrismicRichText documents.left_column_list_items}}}
+    </div>
+    <div class="small-12 medium-5 large-5 column">
+      <h2 class="headline">{{PrismicPlainText documents.right_column_headline}}</h2>
+      {{{PrismicRichText documents.right_column_list_items}}}
+    </div>
+  </div>
+  {{/empty}}
+
+  {{#each templates}}
+    {{#empty styles.left_column_headline1}}
+    <div class="top-section row align-spaced">
+      <div class="small-12 medium-5 large-5 column">
+        <h2 class="headline">{{PrismicPlainText styles.left_column_headline1}}</h2>
+        {{{PrismicRichText styles.left_column_items}}}
+      </div>
+      <div class="small-12 medium-5 large-5 column">
+        <h2 class="headline">{{PrismicPlainText styles.right_column_headline1}}</h2>
+        {{{PrismicRichText styles.right_column_items}}}
+      </div>
+    </div>
+    {{/empty}}
+
+    {{#if headline}}
+    <div class="accordion">
+      <!-- Headline -->
+      <div class="row align-center">
+        <div class="medium-11 large-11 column">
+          <div class="section-headline">
+            <h2>{{PrismicPlainText headline}}</h2>
+            <div class="collapse-btn"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Grid of thumbnails Slice -->
+      <div class="row align-center closed con">
+        <div class="small-12 medium-11 large-11 column">
+          <div class="container row">
+            {{#each details}}
+            <div class="template small-12 medium-6 large-3 column">
+              <img class="placeholder" src="{{data.template_thumbnail.url}}">
+              <div class="reference-num">{{{PrismicPlainText data.reference_number}}}</div>
+              <div class="title">{{PrismicPlainText data.template_name}}</div>
+              <div class="more-colors">{{{MoreColors data.more_colors}}}</div>
+              {{#empty data.template_description}}
+              <div class="description">{{PrismicPlainText data.template_description}}</div>
+              {{/empty}}
+              <ul class="slider-holder">
+                {{#each data.template_images}}
+                <li>{{image.url}}</li>
+                {{/each}}
+              </ul>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      <!-- Pagniation -->
+      {{#if pagination}}
+      <div id="pagination" class="row align-center closed con">
+        <ul class="small-12 medium-11">
+          {{#each pagination}}
+          {{{this}}}
+          {{/each}}
+        </ul>
+      </div>
+      {{/if}}
+    </div>
+    {{/if}}
+  {{/each}}
+
+  <div id="slider-cont">
+    <div class="google-doc row black">
+      <div class="large-6 column">
+        <a href="https://docs.google.com/spreadsheets/d/1D8qLFfinc16xrJLzG3zG_Meb19dRP1UsrZxz8LIekn0/edit#gid=29506218" target="_blank">
+          <span></span>
+          <div class="block">Listing of Concept</br> Look Bank Utilization</div>
+        </a>
+      </div>
+      <div id="x-box"></div>
+    </div>
+    <div class="reference-num-container large-12 column"></div>
+    <div id="title" class="large-12 column"></div>
+    <div id="slider-box" class="row align-center">
+      <div class="arrow-cont-left">
+        <div id="prev" class="left arrow invisible"></div>
+      </div>
+      <div class="box-container small-12 medium-11 large-11 column">
+        <div class="slider">
+        </div>
+      </div>
+      <div class="arrow-cont-right">
+        <div id="next" class="right arrow"></div>
+      </div>
+    </div>
+  </div>
+</div>

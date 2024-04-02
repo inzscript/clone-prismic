@@ -1,0 +1,157 @@
+nav {
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+
+  &.open {
+    height: 100%;
+  }
+  #nav-container {
+    position: relative;
+    height: 85px;
+    @include breakpoint(medium) {
+      height: 106px;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: row;
+      align-content: baseline;
+      justify-items: center;
+      justify-self: center;
+      justify-content: space-between;
+      align-self: center;
+      height: 100%;
+      align-items: center;
+    }
+
+    #logo {
+      height: 84px;
+      width: 220px;
+      background-repeat: no-repeat;
+      background-image: url($theme-path + 'logo.png');
+      background-size: contain;
+      @include breakpoint(medium) {
+        height: 106px;
+      }
+    }
+  }
+
+  .title {
+    pointer-events: none;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    font-size: em(24);
+    top: 0;
+    left: 0;
+    right: 0;
+    // top: 23px;
+    z-index: 0;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-weight: 600;
+    display: none;
+    @include breakpoint(large) {
+      display: flex;
+    }
+  }
+
+  a {
+    display: inline-block;
+  }
+}
+
+#nav-menu {
+  z-index: 3;
+  background-color: $red;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: none;
+  &.show {
+    display: block;
+    // overflow: scroll;
+  }
+
+  .scroll {
+    height: calc(100% - 50px);
+    overflow: scroll;
+  }
+
+  #navigation {
+    margin-top: 60px;
+    // margin-bottom: 49px;
+    @include breakpoint(medium) {
+      margin-top: 70px;
+      margin-bottom: 40px;
+    }
+
+    @include breakpoint(large) {
+      margin-top: 170px;
+    }
+
+    .nav {
+      margin-bottom: 20px;
+
+      @include breakpoint(medium) {
+        margin-bottom: 0;
+      }
+    }
+    ul {
+      @include breakpoint(large) {
+        // column-count: 2;
+      }
+      li {
+        margin-bottom: 14px;
+        @include breakpoint(medium) {
+          margin-bottom: 42px;
+        }
+
+        @media screen and (max-height: 800px) {
+          margin-bottom: 25px;
+        }
+        a {
+          font-size: em(16);
+          color: #fff;
+          font-weight: 600;
+          text-transform: capitalize;
+
+          @include breakpoint(medium) {
+            font-size: em(24);
+          }
+
+
+        }
+      }
+    }
+  }
+
+  h2 {
+    color: #fff;
+    font-size: em(24);
+    font-weight: 600;
+    @include breakpoint(medium) {
+      font-size: em(39);
+    }
+    @media only screen and (max-width: 1230px) {
+      font-size: em(31);
+    }
+
+  }
+
+  hr {
+    border-bottom: 2px solid #fff;
+    margin-top: 0px;
+    @include breakpoint(medium) {
+      border-bottom: 4px solid #fff;
+      margin-top: inherit;
+
+    }
+  }
+}
